@@ -1,4 +1,4 @@
-//Dynamic Programing Solution
+//Dynamic Programing Solution Memo
 function fibonacciMemo(n, memo = []) {
   if (n <= 1) return n
   if (memo[n]) return memo[n]
