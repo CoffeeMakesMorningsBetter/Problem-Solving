@@ -31,3 +31,6 @@ var lengthOfLongestSubstring = function(s) {
   return longest
 };
 
+// Clever Solution
+// NOT MINE
+// https://leetcode.com/problems/longest-substring-without-repeating-characters/discuss/132750/Javascript-beats-99.72
