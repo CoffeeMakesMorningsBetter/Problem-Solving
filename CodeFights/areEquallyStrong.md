@@ -15,7 +15,7 @@ areEquallyStrong(yourLeft, yourRight, friendsLeft, friendsRight) = true;
 For yourLeft = 15, yourRight = 10, friendsLeft = 15 and friendsRight = 9, the output should be
 areEquallyStrong(yourLeft, yourRight, friendsLeft, friendsRight) = false.
 
-###Input/Output
+###xInput/Output
 
 [execution time limit] 4 seconds (js)
 
