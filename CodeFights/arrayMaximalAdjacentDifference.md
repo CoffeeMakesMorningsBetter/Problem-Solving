@@ -1,4 +1,4 @@
-[CodeFights: arrayMaximalAdjacentDifference]()
+[CodeFights: arrayMaximalAdjacentDifference](https://codefights.com/arcade/intro/level-5/EEJxjQ7oo7C5wAGjE/description)
 
 Given an array of integers, find the maximal absolute difference between any two of its adjacent elements.
 
