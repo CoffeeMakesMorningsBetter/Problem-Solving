@@ -1,3 +1,5 @@
+[CodeFights: palindromeRearrange](https://codefights.com/arcade/intro/level-4/Xfeo7r9SBSpo3Wico/description)
+
 Given a string, find out if its characters can be rearranged to form a palindrome.
 
 ###Example
