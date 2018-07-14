@@ -1,3 +1,16 @@
+/*
+Queue is a FIFO(first in first out) data structure: the first thing to be added to the queue will also be the first thing to be removed.
+
+enqueue:
+This function adds the value to the end of the queue. This should be an O(1) operation and return the new size of the queue.
+
+dequeue:
+This function removes the value at the beginning of the queue. This should be an O(1) operation and return the value removed.
+
+peek:
+This function returns the first value in the queue.
+*/ 
+
 class Node{
   constructor(value){
     this.value = value;
