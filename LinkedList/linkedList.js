@@ -139,42 +139,84 @@ class SingleLinkedList {
       }
     }
   }
-    // Should insert a new Node given an idx 
-    insert(idx, value) {
-      let node = new Node(value)
-      let current = this.head 
-      let count = 0
-      let temp 
-  
-      if(!this.head || idx > this.size || idx < 0) return false
-  
-      if(idx === this.size) {
-        this.tail.next = node 
-        node = this.tail 
+
+  // Should insert a new Node given an idx 
+  insert(idx, value) {
+    let node = new Node(value)
+    let current = this.head 
+    let count = 0
+    let temp 
+
+    if(!this.head || idx > this.size || idx < 0) return false
+
+    if(idx === this.size) {
+      this.tail.next = node 
+      node = this.tail 
+      this.size++
+      return true 
+    }
+
+    if(idx === 0) {
+      node.next = this.head 
+      this.head = node 
+      this.size++
+      return true
+    }
+
+    while(current.next) {
+      if(count + 1 === idx) {
+        temp = current.next 
+        current.next = node 
+        node.next = temp
         this.size++
         return true 
-      }
-  
-      if(idx === 0) {
-        node.next = this.head 
-        this.head = node 
-        this.size++
-        return true
-      }
-  
-      while(current.next){
-        if(count + 1 === idx){
-          temp = current.next 
-          current.next = node 
-          node.next = temp
-          this.size++
-          return true 
-        } else {
-          current = current.next 
-          count++
-        }
+      } else {
+        current = current.next 
+        count++
       }
     }
+  }
+
+  // Should remove a Node at a given idx and return the removed node 
+  remove(idx) {
+    let count = 0
+    let current = this.head 
+    let removedNode 
+
+    if(!this.head || idx < 0 || idx >= this.size) return null 
+
+    if(idx === 0) {
+      removedNode = this.head 
+      this.head = removedNode.next
+      removedNode.next = null 
+      this.size--
+      return removedNode
+    }
+
+    while(current.next) {
+      if(count + 1 === idx) {
+        let temp 
+        removedNode = current.next
+        // check if removedNode.next is not null AKA tail
+        // dont need to set temp but need to reset tail 
+        if(!removedNode.next) {
+          current.next = null 
+          this.tail = current
+          this.size--
+          return removedNode
+        } else {
+          temp = removedNode.next
+          removedNode.next = null 
+          current.next = temp 
+          this.size--
+          return removedNode
+        }
+      } else {
+        current = current.next 
+        count++
+      }
+    }
+  }
 }
 
 let list = new SingleLinkedList()
@@ -195,7 +237,7 @@ list.push(20)
 list.get(15) // 2
 list.set(2, "Boston")
 
-list.removeAll
+list.removeAll()
 
 list.push(5)
 list.push(10)
@@ -204,3 +246,14 @@ list.insert(1,"NYC")
 list.insert(0, "Oakland")
 
 list.removeAll()
+
+list.push(5)
+list.push(10)
+list.push(15)
+list.insert(1,"NYC")
+list.insert(0, "Oakland")
+list.remove(0) // return {Oakland}
+list.remove(3)  // return {15}
+list.push("SF")
+list.push("LA")
+list.remove(3) // return {SF}
