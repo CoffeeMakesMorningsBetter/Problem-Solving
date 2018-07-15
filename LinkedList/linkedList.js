@@ -17,7 +17,7 @@ class SingleLinkedList {
     let node = new Node(value)
     let temp
 
-    if(!this.head){
+    if(!this.head) {
       this.head = node 
       this.tail = node 
       this.size++
@@ -52,7 +52,7 @@ class SingleLinkedList {
     let node = new Node(value)
     let temp 
 
-    if(!this.tail){
+    if(!this.tail) {
       this.head = node 
       this.tail = node 
       this.size++
@@ -71,11 +71,11 @@ class SingleLinkedList {
     let current = this.head 
     let removedNode
 
-    if(!this.tail){
+    if(!this.tail) {
       return null
     } 
 
-    if(this.size === 1){
+    if(this.size === 1) {
       removedNode = this.tail 
       this.head = null 
       this.tail = null
@@ -83,8 +83,8 @@ class SingleLinkedList {
       return removedNode
     }
 
-    while(current.next){
-      if(current.next === this.tail){
+    while(current.next) {
+      if(current.next === this.tail) {
         removedNode = this.tail 
         current.next = null
         this.tail = current 
@@ -112,7 +112,7 @@ class SingleLinkedList {
     if(!this.head) return -1
 
     while(current.next) {
-      if(current.value === value){
+      if(current.value === value) {
         return idx
       } else {
         current = current.next 
@@ -129,8 +129,8 @@ class SingleLinkedList {
 
     if(!this.head || idx > this.size) return null 
 
-    while(current.next){
-      if(idx === count){
+    while(current.next) {
+      if(idx === count) {
         current.value = updateValue
         return current
       } else {
@@ -217,6 +217,30 @@ class SingleLinkedList {
       }
     }
   }
+  
+  // Reverses a LinkedList and update next 
+  reverseList() {
+    let prevNode = null 
+    let currentNode = this.head 
+    let nextNode = currentNode.next
+
+    let priorhead = this.head
+
+    if(!this.size) return null
+
+    while(nextNode) {
+      // this sets next 
+      currentNode.next = prevNode 
+
+      prevNode = currentNode 
+      currentNode = nextNode
+      nextNode = nextNode.next
+    }
+    currentNode.next = prevNode
+    this.head = this.tail
+    this.tail = priorhead
+    return this
+  }
 }
 
 let list = new SingleLinkedList()
@@ -257,3 +281,11 @@ list.remove(3)  // return {15}
 list.push("SF")
 list.push("LA")
 list.remove(3) // return {SF}
+
+list.removeAll()
+
+list.push(5)
+list.push(10)
+list.push(15)
+list.push("JavaScript")
+list.reverseList()
