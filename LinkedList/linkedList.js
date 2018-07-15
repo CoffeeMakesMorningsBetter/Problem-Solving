@@ -139,6 +139,42 @@ class SingleLinkedList {
       }
     }
   }
+    // Should insert a new Node given an idx 
+    insert(idx, value) {
+      let node = new Node(value)
+      let current = this.head 
+      let count = 0
+      let temp 
+  
+      if(!this.head || idx > this.size || idx < 0) return false
+  
+      if(idx === this.size) {
+        this.tail.next = node 
+        node = this.tail 
+        this.size++
+        return true 
+      }
+  
+      if(idx === 0) {
+        node.next = this.head 
+        this.head = node 
+        this.size++
+        return true
+      }
+  
+      while(current.next){
+        if(count + 1 === idx){
+          temp = current.next 
+          current.next = node 
+          node.next = temp
+          this.size++
+          return true 
+        } else {
+          current = current.next 
+          count++
+        }
+      }
+    }
 }
 
 let list = new SingleLinkedList()
@@ -160,3 +196,11 @@ list.get(15) // 2
 list.set(2, "Boston")
 
 list.removeAll
+
+list.push(5)
+list.push(10)
+list.push(15)
+list.insert(1,"NYC")
+list.insert(0, "Oakland")
+
+list.removeAll()
