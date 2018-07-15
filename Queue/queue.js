@@ -11,14 +11,14 @@ peek:
 This function returns the first value in the queue.
 */ 
 
-class Node{
+export class Node{
   constructor(value){
     this.value = value;
     this.next = null;
   }
 }
 
-class Queue{
+export default class Queue{
   constructor(){
     this.first = null;
     this.last = null;
