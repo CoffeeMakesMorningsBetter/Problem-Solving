@@ -104,19 +104,19 @@ export class SingleLinkedList {
     return this
   }
 
-  // Should return the Index of the Node at the first found value
-  get(value) {
+  // Should return node given an idx
+  get(idx) {
     let current = this.head
-    let idx = 0 
+    let count = 0 
 
-    if(!this.head) return -1
+    if(!this.head || idx > this.size) return -1
 
     while(current.next) {
-      if(current.value === value) {
-        return idx
+      if(count === idx) {
+        return current
       } else {
         current = current.next 
-        idx++
+        count++
       }
     }
     return -1 
