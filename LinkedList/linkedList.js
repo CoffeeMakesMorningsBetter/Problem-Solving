@@ -1,11 +1,11 @@
-class Node {
+export class Node {
   constructor(value) {
     this.value = value
     this.next = null
   }
 }
 
-class SingleLinkedList {
+export class SingleLinkedList {
   constructor() {
     this.head = null 
     this.tail = null 
