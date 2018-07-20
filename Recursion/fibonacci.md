@@ -9,6 +9,5 @@ function fibonacci(num){
 fibonacci(5) // 5
 fibonacci(10) // 55
 fibonacci(15) // 610
-
 ```
 
