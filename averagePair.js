@@ -20,7 +20,7 @@ Sample Input:
     end is list length - 1
       if start + end equal to avg return true
     if start plus end greater then avg decrement end
-    else increment start
+    else increment
 */
 
 function averagePair(list, avg) {
