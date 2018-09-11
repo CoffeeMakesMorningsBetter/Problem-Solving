@@ -1,18 +1,26 @@
 // Works Only For Sorted Arrays
+  // refactored to remove shift() 
 function merge(arr1, arr2) {
   let mergedArr = []
-  while(arr1.length && arr2.length){
-      if(arr1[0] <= arr2[0]){
-          mergedArr.push(arr1.shift())
+  let i = 0
+  let j = 0
+
+  while(i < arr1.length && j < arr2.length){
+      if(arr1[i] <= arr2[j]){
+          mergedArr.push(arr1[i])
+          i++
       } else {
-          mergedArr.push(arr2.shift())
+          mergedArr.push(arr2[j])
+          j++
       }
   }
-  while(arr1.length){
-      mergedArr.push(arr1.shift())
+  while(i < arr1.length){
+      mergedArr.push(arr1[i])
+      i++
   }
-  while(arr2.length){
-      mergedArr.push(arr2.shift())
+  while(j < arr2.length){
+      mergedArr.push(arr2[j])
+      j++
   }
   return mergedArr
 }
