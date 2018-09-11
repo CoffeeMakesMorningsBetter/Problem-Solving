@@ -1,3 +1,4 @@
+// Works Only For Sorted Arrays
 function merge(arr1, arr2) {
   let mergedArr = []
   while(arr1.length && arr2.length){
