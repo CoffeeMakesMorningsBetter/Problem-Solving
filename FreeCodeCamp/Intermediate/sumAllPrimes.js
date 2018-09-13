@@ -5,3 +5,7 @@ A prime number is defined as a number greater than one and having only two divis
 
 The provided number may not be a prime.
 */ 
+
+sumPrimes(10) //should return a number.
+sumPrimes(10) //should return 17.
+sumPrimes(977) //should return 73156.
