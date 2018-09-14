@@ -12,3 +12,7 @@ function pivot(list, start=0, end=list.length-1) {
   console.log(list)
   return pivotIdx
 }
+
+let test = [26,23,27,44,17,47,39,42,43,1] //3 list[3] = 26
+
+pivot(test) // pivotIdx = 3 [ 1, 23, 17, 26, 27, 47, 39, 42, 43, 44 ]
