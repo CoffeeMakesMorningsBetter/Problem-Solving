@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style>
+  div{
+  border: 1px solid black;
+}
+
+.div-one {
+  height: 500px;
+  width: 500px;
+  margin: 0 auto;
+  text-align: center;
+  left: 50%;
+  top: 50%;
+
+}
+
+.div-two {
+  height: 250px;
+  width: 250px;
+  margin: 0 auto;
+  text-align: center;
+    position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+
+}
+
+.div-three {
+  height: 125px;
+  width: 125px;
+  margin: 0 auto;
+
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+
+}
+  </style>
+  <title>Three Divs</title>
+</head>
+<body>
+  <div class='div-one'>
+    Div 1
+    <div class='div-two'>
+      Div 2
+      <div class='div-three'>
+        Div 3
+      </div>
+    </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
