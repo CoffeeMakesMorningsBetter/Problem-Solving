@@ -1,3 +1,10 @@
+/*
+Write a recursive function called letterTally which accepts a 
+string and returns an object containing tallies of each letter. 
+The keys of the object are the letters and the values are the 
+counts.
+*/ 
+
 // PURE RECURSION 
 function letterTally(str, obj = {}) {
   if(str.length === 0) return obj
