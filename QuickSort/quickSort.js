@@ -9,7 +9,7 @@ function pivot(list, start=0, end=list.length-1) {
     }
   }
   // SWAP pivot value with pivotIdx now its in the correct order on the list
-  [list[check], list[pivotIdx]] = [list[pivotIdx], list[check]]
+  [list[start], list[pivotIdx]] = [list[pivotIdx], list[start]]
   return pivotIdx
 }
 
