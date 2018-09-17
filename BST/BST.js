@@ -55,6 +55,22 @@ class BinarySearchTree {
       }
     }
   }
+
+  BFS() {
+    let queue = [this.root]
+    let other = []
+    while(queue.length) {
+      let value = queue.shift()
+      if(value.left !== null) {
+        queue.push(value.left)
+      }
+      if(value.right !== null) {
+        queue.push(value.right)
+      }
+     other.push(value.value)
+    }
+    return other 
+  }
 }
 
 let BST = new BinarySearchTree()
@@ -70,3 +86,5 @@ BST.findRecursively(11)
 BST.findRecursively(100)
 BST.findRecursively(3)
 BST.findRecursively(2)
+
+BST.BFS() // [5,2,10,3,9,11]
