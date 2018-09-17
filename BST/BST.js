@@ -59,17 +59,17 @@ class BinarySearchTree {
   BFS() {
     let queue = [this.root]
     let other = []
-    while(queue.length) {
+    while (queue.length) {
       let value = queue.shift()
-      if(value.left !== null) {
+      if (value.left !== null) {
         queue.push(value.left)
       }
-      if(value.right !== null) {
+      if (value.right !== null) {
         queue.push(value.right)
       }
-     other.push(value.value)
+      other.push(value.value)
     }
-    return other 
+    return other
   }
 
   DFSPre(currentNode = this.root, other = []) {
@@ -86,16 +86,29 @@ class BinarySearchTree {
   }
 
   DFSInOrder(currentNode = this.root, other = []) {
-    if(currentNode.left) {
+    if (currentNode.left) {
       this.DFSInOrder(currentNode.left, other)
     }
-    if(currentNode.value) {
+    if (currentNode.value) {
       other.push(currentNode.value)
     }
-    if(currentNode.right) {
+    if (currentNode.right) {
       this.DFSInOrder(currentNode.right, other)
     }
-    return other 
+    return other
+  }
+
+  DFSPost(currentNode = this.root, other = []) {
+    if (currentNode.left) {
+      this.DFSPost(currentNode.left, other)
+    }
+    if (currentNode.right) {
+      this.DFSPost(currentNode.right, other)
+    }
+    if (currentNode.value) {
+      other.push(currentNode.value)
+    }
+    return other
   }
 }
 
@@ -122,3 +135,4 @@ BST.DFSPre() // [ 5, 2, 1, 0.5, 3, 4, 10, 9, 11 ]
 
 BST.DFSInOrder() // [ 0.5, 1, 2, 3, 4, 5, 9, 10, 11 ]
 
+BST.DFSPost() // [ 0.5, 1, 4, 3, 2, 9, 11, 10, 5 ]
