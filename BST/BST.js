@@ -84,6 +84,19 @@ class BinarySearchTree {
     }
     return other
   }
+
+  DFSInOrder(currentNode = this.root, other = []) {
+    if(currentNode.left) {
+      this.DFSInOrder(currentNode.left, other)
+    }
+    if(currentNode.value) {
+      other.push(currentNode.value)
+    }
+    if(currentNode.right) {
+      this.DFSInOrder(currentNode.right, other)
+    }
+    return other 
+  }
 }
 
 let BST = new BinarySearchTree()
@@ -106,3 +119,6 @@ BST.findRecursively(2)
 BST.BFS() // [ 5, 2, 10, 1, 3, 9, 11, 0.5, 4 ]
 
 BST.DFSPre() // [ 5, 2, 1, 0.5, 3, 4, 10, 9, 11 ]
+
+BST.DFSInOrder() // [ 0.5, 1, 2, 3, 4, 5, 9, 10, 11 ]
+
