@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>SyncFiddle</title>
+  <style>
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Helvetica Neue", Helvetica, sans-serif;
+
+    }
+
+    .grandparent {
+      width: 100%;
+      height: 20%;
+      background: white;
+      border: solid 1px black;
+      position: relative;
+    }
+
+    .parent {
+      width: 75%;
+      height: 20px;
+      border: solid 1px black;
+      background: gray;
+      position: absolute;
+      top: 42%;
+      left: 10%;
+    }
+
+    .child {
+      width: 50%;
+      height: 100%;
+      background: green;
+    }
+  </style>
+</head>
+
+<body>
+  <img src="https://css-tricks.com/wp-content/uploads/2013/08/reset-progress-bar.png" style="width:100%">
+  <div class="grandparent">
+    <div class="parent">
+      <div class="child"></div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+    var $child = $('.child')
+    var progress = 1;
+
+    var stop = setInterval(function () {
+      if (progress === 101) {
+        clearInterval(stop)
+      } else {
+      $child.css('width', `${progress}%`)
+      progress++
+      }
+    }, 100)
+
+  </script>
+</body>
+
+</html>
