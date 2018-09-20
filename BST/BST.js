@@ -117,6 +117,10 @@ class BinarySearchTree {
     let right = this.MaxDepthOfBST(currentNode.right)
     return Math.max(left, right) + 1
   }
+
+  Sum(currentNode = this.root, DFSPost) {
+    return this.DFSPost(currentNode).reduce((sum, value) => sum += value)
+  }
 }
 
 let BST = new BinarySearchTree()
@@ -145,3 +149,5 @@ BST.DFSInOrder() // [ 0.5, 1, 2, 3, 4, 5, 9, 10, 11 ]
 BST.DFSPost() // [ 0.5, 1, 4, 3, 2, 9, 11, 10, 5 ]
 
 BST.MaxDepthOfBST() // 4
+
+BST.Sum() // 45.5
