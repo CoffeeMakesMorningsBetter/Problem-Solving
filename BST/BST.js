@@ -110,6 +110,13 @@ class BinarySearchTree {
     }
     return other
   }
+
+  MaxDepthOfBST(currentNode = this.root) {
+    if (currentNode === null) return 0
+    let left = this.MaxDepthOfBST(currentNode.left)
+    let right = this.MaxDepthOfBST(currentNode.right)
+    return Math.max(left, right) + 1
+  }
 }
 
 let BST = new BinarySearchTree()
@@ -136,3 +143,5 @@ BST.DFSPre() // [ 5, 2, 1, 0.5, 3, 4, 10, 9, 11 ]
 BST.DFSInOrder() // [ 0.5, 1, 2, 3, 4, 5, 9, 10, 11 ]
 
 BST.DFSPost() // [ 0.5, 1, 4, 3, 2, 9, 11, 10, 5 ]
+
+BST.MaxDepthOfBST() // 4
