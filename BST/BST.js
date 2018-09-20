@@ -121,6 +121,12 @@ class BinarySearchTree {
   Sum(currentNode = this.root, DFSPost) {
     return this.DFSPost(currentNode).reduce((sum, value) => sum += value)
   }
+
+  // PROPER WAY TO DO addBST
+  addBST(currentNode = this.root) {
+    if (currentNode === null) return 0
+    return currentNode.value + this.addBST(currentNode.left) + this.addBST(currentNode.right)
+  }
 }
 
 let BST = new BinarySearchTree()
@@ -151,3 +157,5 @@ BST.DFSPost() // [ 0.5, 1, 4, 3, 2, 9, 11, 10, 5 ]
 BST.MaxDepthOfBST() // 4
 
 BST.Sum() // 45.5
+
+BST.addBST() // 45.5
