@@ -130,8 +130,7 @@ class BinarySearchTree {
 
   isValid(currentNode = this.root, min=null, max=null) {
     if(currentNode === null) return true 
-    if(currentNode.val < min) return false
-    if(max !== null || currentNode.val > max) return false
+    if(min !== null && currentNode.val <= min || max !== null && currentNode.val > max) return false
     return this.isValid(currentNode.left, min, currentNode.val) && this.isValid(currentNode.right, currentNode.val, max)
   }
 }
