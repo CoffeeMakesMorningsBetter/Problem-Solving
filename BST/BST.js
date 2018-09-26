@@ -127,6 +127,13 @@ class BinarySearchTree {
     if (currentNode === null) return 0
     return currentNode.value + this.addBST(currentNode.left) + this.addBST(currentNode.right)
   }
+
+  isValid(currentNode = this.root, min=null, max=null) {
+    if(currentNode === null) return true 
+    if(currentNode.val < min) return false
+    if(max !== null || currentNode.val > max) return false
+    return this.isValid(currentNode.left, min, currentNode.val) && this.isValid(currentNode.right, currentNode.val, max)
+  }
 }
 
 let BST = new BinarySearchTree()
