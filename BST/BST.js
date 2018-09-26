@@ -57,6 +57,7 @@ class BinarySearchTree {
   }
 
   BFS() {
+    if(!this.root) return []
     let queue = [this.root]
     let other = []
     while (queue.length) {
@@ -73,6 +74,7 @@ class BinarySearchTree {
   }
 
   DFSPre(currentNode = this.root, other = []) {
+    if(!currentNode) return other 
     if (currentNode.value) {
       other.push(currentNode.value)
     }
@@ -86,6 +88,7 @@ class BinarySearchTree {
   }
 
   DFSInOrder(currentNode = this.root, other = []) {
+    if(!currentNode) return other 
     if (currentNode.left) {
       this.DFSInOrder(currentNode.left, other)
     }
@@ -99,6 +102,7 @@ class BinarySearchTree {
   }
 
   DFSPost(currentNode = this.root, other = []) {
+    if(!currentNode) return other 
     if (currentNode.left) {
       this.DFSPost(currentNode.left, other)
     }
