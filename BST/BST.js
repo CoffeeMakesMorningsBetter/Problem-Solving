@@ -137,6 +137,13 @@ class BinarySearchTree {
     if(min !== null && currentNode.val <= min || max !== null && currentNode.val > max) return false
     return this.isValid(currentNode.left, min, currentNode.val) && this.isValid(currentNode.right, currentNode.val, max)
   }
+
+  isSameTree(b1, b2) {
+    if(!b1 && !b2) return true 
+    if(!b1 || !b2) return false
+    if(b1.val !== b2.val) return false 
+    return this.isSameTree(b1.left, b2.left) && this.isSameTree(b1.right, b2.right)
+  }
 }
 
 let BST = new BinarySearchTree()
