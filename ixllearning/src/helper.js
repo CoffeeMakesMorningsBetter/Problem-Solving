@@ -11,12 +11,20 @@ function createAlphabet(value = null) {
   let shiftValue = value === null ? 0: value
   let arr = []
   for(let i = 65; i <= 90; i++) {
-    arr.push({name:String.fromCharCode(i), encoded: String.fromCharCode(((i-65)+shiftValue)% 26 + 65)})
+    let name = String.fromCharCode(i)
+    let encoded = String.fromCharCode(((i-65)+shiftValue)% 26 + 65)
+    arr.push({name:name, encoded: encoded})
   }
   return arr
 }
 
+function checkValidInput(str) {
+  let regex = /^[^a-z]*$/
+  return regex.test(str) && str.length>= 3 && str.length <= 8
+}
+
 export {
   createPosition,
-  createAlphabet
+  createAlphabet,
+  checkValidInput
 }
