@@ -1,0 +1,17 @@
+.gridItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.gridItem > div {
+  border: black solid 0.5px;
+  padding: 5px;
+}
+
+.highlight {
+  background: turquoise;
+}
+
+.nothightlight {
+  background: white;
+}

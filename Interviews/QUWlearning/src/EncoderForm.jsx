@@ -12,8 +12,17 @@ class EncoderForm extends Component {
     this.handleChange = this.handleChange.bind(this)
   }
 
+  static getDerivedStateFromProps(props, state) {
+    return {
+      word: props.topValue,
+      endcoded: props.bottomValue
+    }
+  }
+
   handleChange(e) {
-    this.setState({[e.target.name]: this.state.word})
+    // including a dummy function so the console doesnt yell at me for not have onChange event
+    let value = e.target.name
+    this.setState({[e.target.name]: this.state[value]})
   }
 
   clear(e) {
@@ -26,15 +35,14 @@ class EncoderForm extends Component {
   }
 
   render() {
-    console.log('MATT')
-    console.log(this.props.cipherGrid)
+    const { position, cipherGrid, updatePosition } = this.props
     return (
       <div>
         <div>
           <CipherGrid 
-            position={this.props.position} 
-            cipherGrid={this.props.cipherGrid} 
-            updatePosition={this.props.updatePosition}
+            position={position} 
+            cipherGrid={cipherGrid} 
+            updatePosition={updatePosition}
           />
         </div>
         <form onSubmit={this.clear}>
@@ -47,14 +55,13 @@ class EncoderForm extends Component {
             />
           </label>
           <input type="submit" value="clear"/>
-          <label>
+          <label>Cipher Text</label>
             <input 
               type="text"
-              name="encoded"
+              name="endcoded"
               value={this.state.endcoded}
               onChange={this.handleChange}
             />
-          </label>
         </form>
       </div>
     )

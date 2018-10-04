@@ -1,9 +1,0 @@
-.gridItem {
-  display: flex;
-  flex-direction: column;
-  border: black solid 1px;
-}
-
-.gridItem > div {
-  border: black solid 1px;
-}

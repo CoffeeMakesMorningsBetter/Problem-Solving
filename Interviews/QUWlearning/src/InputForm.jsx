@@ -21,9 +21,9 @@ class InputForm extends Component {
     let checkInput = checkValidInput(this.state.input)
     if(checkInput) {
       this.props.addWord({word: this.state.input})
-      this.setState({word: "", error: false})
+      this.setState({input:"", error: false})
     } else {
-      this.setState({word: this.state.input, error: true})
+      this.setState({input: this.state.input, error: true})
     }
   }
 
@@ -32,6 +32,7 @@ class InputForm extends Component {
       <div>
         {this.state.error === true && <h2>Please use capital letters only with a min length of 3 and max length of 8</h2>}
         <form onSubmit={this.handleSubmit}>
+          <label>Keyword</label>
             <input
               type="text"
               name="input"

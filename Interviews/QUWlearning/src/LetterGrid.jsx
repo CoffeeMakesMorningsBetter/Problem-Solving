@@ -4,8 +4,8 @@ import './LetterGrid.css'
 
 class LetterGrid extends Component {
   render(){
-    console.log(this.props.code)
-    let gridItems = this.props.code.map((obj,idx) => <GridItem key={idx} {...obj}/>)
+    const { code, position } = this.props
+    let gridItems = code.map((obj,idx) => <GridItem key={idx} idx={idx} letter={obj.letter} value={obj.value} position={position}/>)
     return(
       <div className="parent">{gridItems}</div>
     )
